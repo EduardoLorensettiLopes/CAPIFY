@@ -113,12 +113,29 @@ li {
   margin-top: 15px;
 }
 li > button {
-  font-size: 18px;
+  font-size: 15px;
   border-left: 2px solid #ffffff;
 }
 
 .playlist {
   text-align: center;
+}
+
+.link-genero {
+  font-size: 15px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.volume {
+  display: flex;
+  width: 300px;
+  text-align: center;
+  font-size: 1rem;
+}
+#controleVolume {
+  justify-content: center;
+  width: 100px;
 }
 
 /* Responsividade para telas menores */

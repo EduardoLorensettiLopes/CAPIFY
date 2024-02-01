@@ -21,14 +21,15 @@ const maxFaixa = 10;
 let = taTocando = 0;
 let = faixaAtual = 1;
 let = repeatActive = 0;
-let selectLike = 0
+let selectLike = 0;
+let likesState = {};
 
 const nameFaixa = {
   1: "Bênçãos Que Não Têm Fim",
   2: "Toca Em Mim De Novo",
   3: "Minha Morada",
   4: "Oi, Jesus",
-  5: "Oi, Jesus",
+  5: "Oi",
   6: "Oi, Jesus",
   7: "Oi, Jesus",
   8: "Oi, Jesus",
@@ -77,6 +78,13 @@ function TocarMusic4() {
   nomeMusica();
   trocarImgCd();
 }
+function TocarMusic5() {
+    faixaAtual = 5;
+    audioMusic.src = "./music/" + faixaAtual + ".mp3";
+    playPause();
+    nomeMusica();
+    trocarImgCd();
+  }
 function tocarFaixa() {
   audioMusic.play();
   botaoPlayPause.classList.remove("bi-play-circle-fill");
@@ -165,21 +173,35 @@ audioMusic.addEventListener("timeupdate", function () {
 });
 
 function like() {
-    
-    if(selectLike === 0){
-        selectLike = 1
+    // Verifique se o estado de like para a faixa atual existe no objeto
+    if (!likesState[faixaAtual]) {
+        // Se não existir, inicialize-o como 0
+        likesState[faixaAtual] = 0;
+    }
+
+    // Alterne o estado de like para a faixa atual
+    likesState[faixaAtual] = 1 - likesState[faixaAtual];
+
+    // Atualize a classe do botão de like com base no estado atual
+    if (likesState[faixaAtual] === 1) {
         curtida.classList.remove('bi-heart');
         curtida.classList.add('bi-heart-fill');
         curtida.classList.add('heartRed');
-
-    }else {
-        selectLike = 0
+    } else {
         curtida.classList.remove('heartRed');
         curtida.classList.remove('bi-heart-fill');
         curtida.classList.add('bi-heart');
-        
     }
 }
+
+controleVolume.addEventListener("input", function () {
+  audioMusic.volume = controleVolume.value;
+});
+
+
+audioMusic.volume = controleVolume.value;
+
+nomeMusica()
 curtida.addEventListener('click', like)
 botaoPlayPause.addEventListener("click", playPause);
 botaoAvancar.addEventListener("click", proximaFaixa);
