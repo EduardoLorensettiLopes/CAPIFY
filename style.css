@@ -1,0 +1,128 @@
+#toggleBtn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+body {
+    background-image: linear-gradient(#6e6e6e, #bbac29);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #d6d6ea;
+    font: 12px Verdana, sans-serif;
+  }
+  
+  .container-aplicativo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  img {
+    height: 250px;
+    width: 250px;
+  }
+  button {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .music-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #informacoes-faixa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+  }
+  
+  
+  #anterior, #proximo {
+    font-size: 3rem;
+  }
+  #heart, #botaoPlayPlaylist  {
+    font-size: 1rem;
+  }
+  .heartRed {
+    color: red;
+  }
+  
+  #play-pause {
+    font-size: 4rem;
+  }
+  
+  #container-botoes {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #barraLateral {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#barraProgresso{
+  width: 100%;
+  margin: 15px 15px;
+}
+
+#barraLateral a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#barraLateral a:hover {
+    color: #f1f1f1;
+}
+
+#toggleBtn {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#conteudoPrincipal {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin-top: 15px;
+}
+li > button {
+  font-size: 18px;
+  border-left: 2px solid #ffffff;
+}
+
+.playlist {
+  text-align: center;
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-height: 450px) {
+    #barraLateral {padding-top: 15px;}
+    #barraLateral a {font-size: 18px;}
+}
